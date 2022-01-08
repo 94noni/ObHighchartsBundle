@@ -1,5 +1,15 @@
 # ObHighchartsBundle
 
+### Fork of the original
+
+Difference with latest v1.7 is the support of Symfony v6+ and PHP v8+, tagged here as v2.
+
+Used for personal projects to render some charts.
+
+---
+
+# ObHighchartsBundle
+
 `ObHighchartsBundle` eases the use of highcharts to display rich graphs and charts in your Symfony application by
 providing Twig extensions and PHP objects to do the heavy lifting. The bundle uses the excellent JS library
 [Highcharts](http://www.highcharts.com).
