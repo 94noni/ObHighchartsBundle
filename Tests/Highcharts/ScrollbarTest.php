@@ -13,12 +13,12 @@ class ScrollbarTest extends TestCase
     /**
      * @var array
      */
-    private $scrollbar;
+    private array $scrollbar;
 
     /*
      * @var array
      */
-    private $usedOptions = array();
+    private array $usedOptions = array();
 
     /**
      * Initialises the data
@@ -45,7 +45,7 @@ class ScrollbarTest extends TestCase
     /**
      * Scrollbar config output
      */
-    public function testConfig()
+    public function testConfig(): void
     {
         $chart = new Highchart();
         foreach ($this->scrollbar as $key => $value) {
@@ -59,6 +59,6 @@ class ScrollbarTest extends TestCase
         preg_match('|scrollbar: (\{[^\}]+\})+|', $chart->render(), $matches);
         $options = json_decode($matches[1], true);
 
-        $this->assertEquals(count($this->usedOptions), count(array_intersect($this->usedOptions, $options)));
+        $this->assertSameSize($this->usedOptions, array_intersect($this->usedOptions, $options));
     }
 }

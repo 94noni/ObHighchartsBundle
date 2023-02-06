@@ -7,19 +7,19 @@ use Twig\TwigFunction;
 
 class HighchartsExtension extends AbstractExtension
 {
-    public function getFunctions()
+    public function getFunctions(): array
     {
-        return array(
-            new TwigFunction('chart', array($this, 'chart'), array('is_safe' => array('html'))),
-        );
+        return [
+            new TwigFunction('chart', [$this, 'chart'], ['is_safe' => ['html']]),
+        ];
     }
 
-    public function chart(ChartInterface $chart, $engine = 'jquery')
+    public function chart(ChartInterface $chart, $engine = 'jquery'): string
     {
         return $chart->render($engine);
     }
 
-    public function getName()
+    public function getName(): string
     {
         return 'highcharts_extension';
     }

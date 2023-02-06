@@ -3,7 +3,7 @@
 namespace Ob\HighchartsBundle\Tests\Highcharts;
 
 use Ob\HighchartsBundle\Highcharts\Highchart;
-use Zend\Json\Expr;
+use Laminas\Json\Expr;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,21 +14,21 @@ class ExportingTest extends TestCase
     /**
      * buttons option
      */
-    public function testButtons()
+    public function testButtons(): void
     {
         $chart = new Highchart();
 
         // align option (string - left/center/right)
         $chart->exporting->buttons(array('exportButton' => array('align' => 'center')));
-        $this->assertRegExp('/exporting: \{"buttons":\{"exportButton":\{"align":"center"\}\}\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/exporting: \{"buttons":\{"exportButton":\{"align":"center"\}\}\}/', $chart->render());
         $chart->exporting->buttons(array('printButton' => array('align' => 'center')));
-        $this->assertRegExp('/exporting: \{"buttons":\{"printButton":\{"align":"center"\}\}\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/exporting: \{"buttons":\{"printButton":\{"align":"center"\}\}\}/', $chart->render());
 
         // backgroundColor option
         $chart->exporting->buttons(array('exportButton' => array('backgroundColor' => 'blue')));
-        $this->assertRegExp('/exporting: \{"buttons":\{"exportButton":\{"backgroundColor":"blue"\}\}\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/exporting: \{"buttons":\{"exportButton":\{"backgroundColor":"blue"\}\}\}/', $chart->render());
         $chart->exporting->buttons(array('printButton' => array('backgroundColor' => 'blue')));
-        $this->assertRegExp('/exporting: \{"buttons":\{"printButton":\{"backgroundColor":"blue"\}\}\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/exporting: \{"buttons":\{"printButton":\{"backgroundColor":"blue"\}\}\}/', $chart->render());
 
         // borderColor option
         // borderRadius option
@@ -59,7 +59,7 @@ class ExportingTest extends TestCase
     /**
      * chartOptions option
      */
-    public function testChartOptions()
+    public function testChartOptions(): void
     {
         $this->markTestIncomplete(
             'This test has not been implemented yet.'
@@ -69,70 +69,70 @@ class ExportingTest extends TestCase
     /**
      * enabled option (true/false)
      */
-    public function testEnabled()
+    public function testEnabled(): void
     {
         $chart = new Highchart();
 
         $chart->exporting->enabled(true);
-        $this->assertRegExp('/exporting: \{"enabled":true\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/exporting: \{"enabled":true\}/', $chart->render());
 
         $chart->exporting->enabled(false);
-        $this->assertRegExp('/exporting: \{"enabled":false\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/exporting: \{"enabled":false\}/', $chart->render());
     }
 
     /**
      * filename option (string)
      */
-    public function testFilename()
+    public function testFilename(): void
     {
         $chart = new Highchart();
         $chart->exporting->filename("graph");
 
-        $this->assertRegExp('/exporting: \{"filename":"graph"\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/exporting: \{"filename":"graph"\}/', $chart->render());
     }
 
     /**
      * type option (string - image/png, image/jpeg, application/pdf or image/svg+xml)
      */
-    public function testType()
+    public function testType(): void
     {
         $chart = new Highchart();
 
         // We need to use a Json Expr or else the slashes are escaped
         $chart->exporting->type(new Expr('"image/png"'));
-        $this->assertRegExp('/exporting: \{"type":"image\/png"\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/exporting: \{"type":"image\/png"\}/', $chart->render());
 
         $chart->exporting->type(new Expr('"image/jpeg"'));
-        $this->assertRegExp('/exporting: \{"type":"image\/jpeg"\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/exporting: \{"type":"image\/jpeg"\}/', $chart->render());
 
         $chart->exporting->type(new Expr('"application/pdf"'));
-        $this->assertRegExp('/exporting: \{"type":"application\/pdf"\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/exporting: \{"type":"application\/pdf"\}/', $chart->render());
 
         $chart->exporting->type(new Expr('"image/svg+xml"'));
-        $this->assertRegExp('/exporting: \{"type":"image\/svg\+xml"\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/exporting: \{"type":"image\/svg\+xml"\}/', $chart->render());
     }
 
     /**
      * url option (string)
      */
-    public function testUrl()
+    public function testUrl(): void
     {
         $chart = new Highchart();
 
         // We need to use a Json Expr or else the slashes are escaped
         $chart->exporting->url(new Expr('"http://www.google.com"'));
 
-        $this->assertRegExp('/exporting: \{"url":"http:\/\/www.google.com"\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/exporting: \{"url":"http:\/\/www.google.com"\}/', $chart->render());
     }
 
     /**
      * width option (integer - width in px)
      */
-    public function testWidth()
+    public function testWidth(): void
     {
         $chart = new Highchart();
         $chart->exporting->width(300);
 
-        $this->assertRegExp('/exporting: \{"width":300\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/exporting: \{"width":300\}/', $chart->render());
     }
 }

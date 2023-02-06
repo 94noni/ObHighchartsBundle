@@ -13,12 +13,12 @@ class ColorsTest extends TestCase
     /**
      * Series output
      */
-    public function testColors()
+    public function testColors(): void
     {
         $linechart = new Highchart();
 
         $colors = array('#FF0000', '#00FF00', '#0000FF');
         $linechart->colors($colors);
-        $this->assertRegExp('/colors: \[\["#FF0000","#00FF00","#0000FF"\]\]/', $linechart->render());
+        $this->assertMatchesRegularExpression('/colors: \[\["#FF0000","#00FF00","#0000FF"\]\]/', $linechart->render());
     }
 }

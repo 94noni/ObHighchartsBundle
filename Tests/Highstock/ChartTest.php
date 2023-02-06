@@ -7,248 +7,248 @@ use PHPUnit\Framework\TestCase;
 
 class ChartTest extends TestCase
 {
-    protected $chart;
+    protected Highstock $chart;
 
     protected function setUp(): void
     {
         $this->chart = new Highstock();
     }
 
-    public function testAlignTicks()
+    public function testAlignTicks(): void
     {
         $this->chart->chart->alignTicks(true);
         $this->assertTrue($this->chart->chart->alignTicks);
-        $this->assertRegExp('/"alignTicks":true/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"alignTicks":true/', $this->chart->render());
 
         $this->chart->chart->alignTicks(false);
         $this->assertFalse($this->chart->chart->alignTicks);
-        $this->assertRegExp('/"alignTicks":false/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"alignTicks":false/', $this->chart->render());
     }
 
-    public function testAnimation()
+    public function testAnimation(): void
     {
         $this->chart->chart->animation(true);
         $this->assertTrue($this->chart->chart->animation);
-        $this->assertRegExp('/"animation":true/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"animation":true/', $this->chart->render());
 
         $this->chart->chart->animation(false);
         $this->assertFalse($this->chart->chart->animation);
-        $this->assertRegExp('/"animation":false/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"animation":false/', $this->chart->render());
     }
 
-    public function testBackgroundColor()
+    public function testBackgroundColor(): void
     {
         $color = '#ffffff';
         $this->chart->chart->backgroundColor($color);
         $this->assertEquals($color, $this->chart->chart->backgroundColor);
-        $this->assertRegExp('/"backgroundColor":"#ffffff"/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"backgroundColor":"#ffffff"/', $this->chart->render());
     }
 
-    public function testBorderColor()
+    public function testBorderColor(): void
     {
         $color = '#4572a7';
         $this->chart->chart->borderColor($color);
         $this->assertEquals($color, $this->chart->chart->borderColor);
-        $this->assertRegExp('/"borderColor":"#4572a7"/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"borderColor":"#4572a7"/', $this->chart->render());
     }
 
-    public function testBorderRadius()
+    public function testBorderRadius(): void
     {
         $radius = 5;
         $this->chart->chart->borderRadius($radius);
         $this->assertEquals($radius, $this->chart->chart->borderRadius);
-        $this->assertRegExp('/"borderRadius":5/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"borderRadius":5/', $this->chart->render());
     }
 
-    public function testBorderWidth()
+    public function testBorderWidth(): void
     {
         $width = 0;
         $this->chart->chart->borderWidth($width);
         $this->assertEquals($width, $this->chart->chart->borderWidth);
-        $this->assertRegExp('/"borderWidth":0/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"borderWidth":0/', $this->chart->render());
     }
 
-    public function testClassName()
+    public function testClassName(): void
     {
         $class = 'extraClass';
         $this->chart->chart->className($class);
         $this->assertEquals($class, $this->chart->chart->className);
-        $this->assertRegExp('/"className":"extraClass"/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"className":"extraClass"/', $this->chart->render());
     }
 
-    public function testEvents()
+    public function testEvents(): void
     {
         $this->markTestIncomplete();
     }
 
-    public function testHeight()
+    public function testHeight(): void
     {
         $height = '300px';
         $this->chart->chart->height($height);
         $this->assertEquals($height, $this->chart->chart->height);
-        $this->assertRegExp('/"height":"300px"/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"height":"300px"/', $this->chart->render());
     }
 
-    public function testIgnoreHiddenSeries()
+    public function testIgnoreHiddenSeries(): void
     {
         $this->chart->chart->ignoreHiddenSeries(true);
         $this->assertTrue($this->chart->chart->ignoreHiddenSeries);
-        $this->assertRegExp('/"ignoreHiddenSeries":true/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"ignoreHiddenSeries":true/', $this->chart->render());
 
         $this->chart->chart->ignoreHiddenSeries(false);
         $this->assertFalse($this->chart->chart->ignoreHiddenSeries);
-        $this->assertRegExp('/"ignoreHiddenSeries":false/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"ignoreHiddenSeries":false/', $this->chart->render());
     }
 
-    public function testMargin()
+    public function testMargin(): void
     {
         $this->markTestIncomplete();
     }
 
-    public function testMarginBottom()
+    public function testMarginBottom(): void
     {
         $margin = '150px';
         $this->chart->chart->marginBottom($margin);
         $this->assertEquals($margin, $this->chart->chart->marginBottom);
-        $this->assertRegExp('/"marginBottom":"150px"/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"marginBottom":"150px"/', $this->chart->render());
     }
 
-    public function testMarginLeft()
+    public function testMarginLeft(): void
     {
         $margin = '150px';
         $this->chart->chart->marginLeft($margin);
         $this->assertEquals($margin, $this->chart->chart->marginLeft);
-        $this->assertRegExp('/"marginLeft":"150px"/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"marginLeft":"150px"/', $this->chart->render());
     }
 
-    public function testMarginRight()
+    public function testMarginRight(): void
     {
         $margin = '150px';
         $this->chart->chart->marginRight($margin);
         $this->assertEquals($margin, $this->chart->chart->marginRight);
-        $this->assertRegExp('/"marginRight":"150px"/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"marginRight":"150px"/', $this->chart->render());
     }
 
-    public function testMarginTop()
+    public function testMarginTop(): void
     {
         $margin = '150px';
         $this->chart->chart->marginTop($margin);
         $this->assertEquals($margin, $this->chart->chart->marginTop);
-        $this->assertRegExp('/"marginTop":"150px"/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"marginTop":"150px"/', $this->chart->render());
     }
 
-    public function testPanning()
+    public function testPanning(): void
     {
         $this->chart->chart->panning(true);
         $this->assertTrue($this->chart->chart->panning);
-        $this->assertRegExp('/"panning":true/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"panning":true/', $this->chart->render());
 
         $this->chart->chart->panning(false);
         $this->assertFalse($this->chart->chart->panning);
-        $this->assertRegExp('/"panning":false/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"panning":false/', $this->chart->render());
     }
 
-    public function testPlotBackgroundColor()
+    public function testPlotBackgroundColor(): void
     {
         $this->markTestIncomplete();
     }
 
-    public function testPlotBackgroundImage()
+    public function testPlotBackgroundImage(): void
     {
         $this->markTestIncomplete();
     }
 
-    public function testPlotBorderColor()
+    public function testPlotBorderColor(): void
     {
         $this->markTestIncomplete();
     }
 
-    public function testPlotBorderWidth()
+    public function testPlotBorderWidth(): void
     {
         $this->markTestIncomplete();
     }
 
-    public function testPlotShadow()
+    public function testPlotShadow(): void
     {
         $this->markTestIncomplete();
     }
 
-    public function testReflow()
+    public function testReflow(): void
     {
         $this->markTestIncomplete();
     }
 
-    public function testRenderTo()
+    public function testRenderTo(): void
     {
         $this->markTestIncomplete();
     }
 
-    public function testSelectionMarkerFIll()
+    public function testSelectionMarkerFIll(): void
     {
         $this->markTestIncomplete();
     }
 
-    public function testShadow()
+    public function testShadow(): void
     {
         $this->markTestIncomplete();
     }
 
-    public function testSpacing()
+    public function testSpacing(): void
     {
         $this->markTestIncomplete();
     }
 
-    public function testSpacingBottom()
+    public function testSpacingBottom(): void
     {
         $spacing = 15;
         $this->chart->chart->spacingBottom($spacing);
         $this->assertEquals($spacing, $this->chart->chart->spacingBottom);
-        $this->assertRegExp('/"spacingBottom":15/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"spacingBottom":15/', $this->chart->render());
     }
 
-    public function testSpacingLeft()
+    public function testSpacingLeft(): void
     {
         $spacing = 10;
         $this->chart->chart->spacingLeft($spacing);
         $this->assertEquals($spacing, $this->chart->chart->spacingLeft);
-        $this->assertRegExp('/"spacingLeft":10/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"spacingLeft":10/', $this->chart->render());
     }
 
-    public function testSpacingRight()
+    public function testSpacingRight(): void
     {
         $spacing = 10;
         $this->chart->chart->spacingRight($spacing);
         $this->assertEquals($spacing, $this->chart->chart->spacingRight);
-        $this->assertRegExp('/"spacingRight":10/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"spacingRight":10/', $this->chart->render());
     }
 
-    public function testSpacingTop()
+    public function testSpacingTop(): void
     {
         $spacing = 10;
         $this->chart->chart->spacingTop($spacing);
         $this->assertEquals($spacing, $this->chart->chart->spacingTop);
-        $this->assertRegExp('/"spacingTop":10/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"spacingTop":10/', $this->chart->render());
     }
 
-    public function testStyle()
+    public function testStyle(): void
     {
         $this->markTestIncomplete();
     }
 
-    public function testType()
+    public function testType(): void
     {
         $this->markTestIncomplete();
     }
 
-    public function testWidth()
+    public function testWidth(): void
     {
         $width = '800px';
         $this->chart->chart->width($width);
         $this->assertEquals($width, $this->chart->chart->width);
-        $this->assertRegExp('/"width":"800px"/', $this->chart->render());
+        $this->assertMatchesRegularExpression('/"width":"800px"/', $this->chart->render());
     }
 
-    public function testZoomType()
+    public function testZoomType(): void
     {
         $this->markTestIncomplete();
     }

@@ -13,45 +13,45 @@ class LegendTest extends TestCase
     /**
      * Align option (left/center/right)
      */
-    public function testAlign()
+    public function testAlign(): void
     {
         $chart = new Highchart();
 
         $chart->legend->align("left");
-        $this->assertRegExp('/legend: \{"align":"left"\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/legend: \{"align":"left"\}/', $chart->render());
 
         $chart->legend->align("center");
-        $this->assertRegExp('/legend: \{"align":"center"\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/legend: \{"align":"center"\}/', $chart->render());
 
         $chart->legend->align("right");
-        $this->assertRegExp('/legend: \{"align":"right"\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/legend: \{"align":"right"\}/', $chart->render());
     }
 
     /**
      * Layout option (horizontal/vertical)
      */
-    public function testLayout()
+    public function testLayout(): void
     {
         $chart = new Highchart();
 
         $chart->legend->layout("horizontal");
-        $this->assertRegExp('/legend: \{"layout":"horizontal"\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/legend: \{"layout":"horizontal"\}/', $chart->render());
 
         $chart->legend->layout("vertical");
-        $this->assertRegExp('/legend: \{"layout":"vertical"\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/legend: \{"layout":"vertical"\}/', $chart->render());
     }
 
     /**
      * Enabled option (true/false)
      */
-    public function testEnabledDisabled()
+    public function testEnabledDisabled(): void
     {
         $chart = new Highchart();
 
         $chart->legend->enabled(false);
-        $this->assertRegExp('/legend: \{"enabled":false\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/legend: \{"enabled":false\}/', $chart->render());
 
         $chart->legend->enabled(true);
-        $this->assertRegExp('/legend: \{"enabled":true\}/', $chart->render());
+        $this->assertMatchesRegularExpression('/legend: \{"enabled":true\}/', $chart->render());
     }
 }
