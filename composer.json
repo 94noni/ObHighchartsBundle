@@ -3,14 +3,16 @@
     "type": "symfony-bundle",
     "description": "Symfony Bundle that ease the use of highcharts to display rich graph and charts in your app (for Symfony v6)",
     "keywords": ["symfony", "charting", "charts", "highcharts", "chart", "graph", "graphs", "ob", "marcaube"],
-    "homepage": "https://github.com/marcaube/ObHighchartsBundle",
+    "homepage": "https://github.com/94noni/ObHighchartsBundle",
     "license": "MIT",
     "authors": [
         {
-            "name": "Marc Aubé"
+            "name": "Marc Aubé (original author)"
+        },
+        {
+            "name": "Antoine Makdessi"
         }
     ],
-
     "require": {
         "php": "^8.0",
         "symfony/http-kernel": "^5.4|^6.0",
