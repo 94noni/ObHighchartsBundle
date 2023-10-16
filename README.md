@@ -4,7 +4,11 @@
 
 Difference with latest v1.7 is the support of Symfony v6+ and PHP v8+, tagged here as v2.
 
-Used for personal projects to render some charts.
+All credits go for original author at https://github.com/marcaube/ObHighchartsBundle.
+
+Used for personal projects to render some charts. Maintenance is not promised as I only fork to handle personal projects.
+
+Thanks!
 
 ---
 
