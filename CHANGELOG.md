@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.1.0
+Various improvements
+https://github.com/94noni/ObHighchartsBundle/releases/tag/v2.1.0
+
+## 2.0.0
+Mostly Symfony v6 and PHP v8 support
+https://github.com/94noni/ObHighchartsBundle/releases/tag/v2.0.0
+
+---
+
+# Original
 
 ## [Unreleased]
 
