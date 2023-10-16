@@ -2,30 +2,44 @@
 
 namespace Ob\HighchartsBundle\Tests;
 
-use Nyholm\BundleTest\BaseBundleTestCase;
+use Nyholm\BundleTest\TestKernel;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Ob\HighchartsBundle\ObHighchartsBundle;
 use Ob\HighchartsBundle\Twig\HighchartsExtension;
+use Symfony\Component\HttpKernel\KernelInterface;
 
-class BundleInitializationTest extends BaseBundleTestCase
+class BundleInitializationTest extends KernelTestCase
 {
-    protected function getBundleClass()
+    protected static function getKernelClass(): string
+    {
+        return TestKernel::class;
+    }
+
+    protected static function createKernel(array $options = []): KernelInterface
+    {
+        /**
+         * @var TestKernel $kernel
+         */
+        $kernel = parent::createKernel($options);
+        $kernel->addTestBundle(ObHighchartsBundle::class);
+        $kernel->addTestConfig(__DIR__.'/Resources/services.yml');
+        $kernel->addTestConfig(__DIR__.'/Resources/config.yml');
+        $kernel->handleOptions($options);
+
+        return $kernel;
+    }
+
+    protected function getBundleClass(): string
     {
         return ObHighchartsBundle::class;
     }
 
-    public function testInitBundle()
+    public function testInitBundle(): void
     {
-        // Create a new Kernel
-        $kernel = $this->createKernel();
-
-        // Add some configuration
-        $kernel->addConfigFile(__DIR__.'/Resources/services.yml');
-
-        // Boot the kernel.
-        $this->bootKernel();
+        $kernel = self::bootKernel();
 
         // Get the container
-        $container = $this->getContainer();
+        $container = $kernel->getContainer();
 
         // Test if you services exists
         $this->assertTrue($container->has('test.ob_highcharts.twig.highcharts_extension'));

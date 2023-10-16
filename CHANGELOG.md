@@ -3,8 +3,7 @@
 
 ## [Unreleased]
 
-TBD
-
+* Fix deprecated Tests for PHPUnit 10
 
 ### [1.7.0] - 2020-01-12
 

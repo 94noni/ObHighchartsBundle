@@ -14,7 +14,7 @@ class TwigTest extends TestCase
     /**
      * Chart rendering using the twig extension
      */
-    public function testTwigExtension()
+    public function testTwigExtension(): void
     {
         $chart = new Highchart();
         $extension = new HighchartsExtension();
@@ -22,19 +22,19 @@ class TwigTest extends TestCase
         $this->assertEquals('highcharts_extension', $extension->getName());
 
         // render with jquery
-        $this->assertRegExp(
+        $this->assertMatchesRegularExpression(
             '/\$\(function\s?\(\)\s?\{\n?\r?\s*var chart = new Highcharts.Chart\(\{\n?\r?\s*\}\);\n?\r?\s*\}\);/',
             $extension->chart($chart)
         );
 
         // render with jquery explicitly
-        $this->assertRegExp(
+        $this->assertMatchesRegularExpression(
             '/\$\(function\s?\(\)\s?\{\n?\r?\s*var chart = new Highcharts.Chart\(\{\n?\r?\s*\}\);\n?\r?\s*\}\);/',
             $extension->chart($chart, 'jquery')
         );
 
         // render with mootools
-        $this->assertRegExp(
+        $this->assertMatchesRegularExpression(
             '/window.addEvent\(\'domready\', function\s?\(\)\s?\{\r?\n?\s*var chart = new Highcharts.Chart\(\{\n?\r?\s*\}\);\n?\r?\s*\}\);/',
             $extension->chart($chart, 'mootools')
         );

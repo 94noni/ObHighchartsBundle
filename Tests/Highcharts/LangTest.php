@@ -13,12 +13,12 @@ class LangTest extends TestCase
     /**
      * Set localized month names
      */
-    public function testMonths()
+    public function testMonths(): void
     {
         $chart = new Highchart();
         $chart->lang->months(array('Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin',  'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'));
 
-        $this->assertRegExp(
+        $this->assertMatchesRegularExpression(
             '/lang: \{"months":\["Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Decembre"\]\}/',
             $chart->render()
         );
@@ -27,12 +27,12 @@ class LangTest extends TestCase
     /**
      * Set abbreviated localized month names
      */
-    public function testShortMonths()
+    public function testShortMonths(): void
     {
         $chart = new Highchart();
         $chart->lang->shortMonths(array('Jan', 'Fev', 'Mars', 'Avril', 'Mai', 'Juin',  'Juil', 'Aout', 'Sept', 'Oct', 'Nov', 'Dec'));
 
-        $this->assertRegExp(
+        $this->assertMatchesRegularExpression(
             '/lang: \{"shortMonths":\["Jan","Fev","Mars","Avril","Mai","Juin","Juil","Aout","Sept","Oct","Nov","Dec"\]\}/',
             $chart->render()
         );
@@ -41,12 +41,12 @@ class LangTest extends TestCase
     /**
      * Set localized weekday names
      */
-    public function testWeekDays()
+    public function testWeekDays(): void
     {
         $chart = new Highchart();
         $chart->lang->weekdays(array('Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'));
 
-        $this->assertRegExp(
+        $this->assertMatchesRegularExpression(
             '/lang: \{"weekdays":\["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"\]\}/',
             $chart->render()
         );
