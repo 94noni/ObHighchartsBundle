@@ -1,18 +1,17 @@
 # Installation
 
-1. Run `composer require ob/highcharts-bundle`
+1. Run `composer require 94noni/highcharts-bundle`
 
-2. Register the bundle in your `app/AppKernel.php`:
+2. Register the bundle in your `config/bundles.php`:
 
-   ``` php
-    <?php
+```php
+<?php
+
+return [
+    Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
+    Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
+    Ob\HighchartsBundle\ObHighchartsBundle::class  => ['all' => true],
     ...
-    public function registerBundles()
-    {
-        $bundles = array(
-            ...
-            new Ob\HighchartsBundle\ObHighchartsBundle(),
-            ...
-        );
-    ...
-   ```
+];
+
+```
