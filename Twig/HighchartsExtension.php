@@ -7,7 +7,7 @@ use Twig\TwigFunction;
 
 class HighchartsExtension extends AbstractExtension
 {
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return array(
             new TwigFunction('chart', array($this, 'chart'), array('is_safe' => array('html'))),
