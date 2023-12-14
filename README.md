@@ -1,12 +1,14 @@
-# ObHighchartsBundle
+# 94noni/highcharts-bundle
 
-### Fork of the original
+> [!NOTE]
+> Fork of the original https://github.com/marcaube/ObHighchartsBundle
 
-Difference with latest v1.7 is the support of Symfony v6+ and PHP v8+, tagged here as v2.
+Difference with latest v1.7 is the support of Symfony v6+ and PHP v8+, tagged here as v2+.
 
 All credits go for original author at https://github.com/marcaube/ObHighchartsBundle.
 
-Used for personal projects to render some charts. Maintenance is not promised as I only fork to handle personal projects.
+> [!IMPORTANT]
+> Maintenance is not promised as I only fork to handle personal projects.
 
 Thanks!
 
@@ -34,11 +36,9 @@ DRY out your chart code by writing it all in PHP!
 * [Cookbook](Resources/doc/cookbook.md)
 * [Highcharts API](https://api.highcharts.com/highcharts)
 
-
 ## Contributing
 
 See [CONTRIBUTING](CONTRIBUTING.md) file.
-
 
 ## License
 
