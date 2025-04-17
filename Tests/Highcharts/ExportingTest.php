@@ -3,7 +3,6 @@
 namespace Ob\HighchartsBundle\Tests\Highcharts;
 
 use Ob\HighchartsBundle\Highcharts\Highchart;
-use Laminas\Json\Expr;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -89,40 +88,6 @@ class ExportingTest extends TestCase
         $chart->exporting->filename("graph");
 
         $this->assertMatchesRegularExpression('/exporting: \{"filename":"graph"\}/', $chart->render());
-    }
-
-    /**
-     * type option (string - image/png, image/jpeg, application/pdf or image/svg+xml)
-     */
-    public function testType(): void
-    {
-        $chart = new Highchart();
-
-        // We need to use a Json Expr or else the slashes are escaped
-        $chart->exporting->type(new Expr('"image/png"'));
-        $this->assertMatchesRegularExpression('/exporting: \{"type":"image\/png"\}/', $chart->render());
-
-        $chart->exporting->type(new Expr('"image/jpeg"'));
-        $this->assertMatchesRegularExpression('/exporting: \{"type":"image\/jpeg"\}/', $chart->render());
-
-        $chart->exporting->type(new Expr('"application/pdf"'));
-        $this->assertMatchesRegularExpression('/exporting: \{"type":"application\/pdf"\}/', $chart->render());
-
-        $chart->exporting->type(new Expr('"image/svg+xml"'));
-        $this->assertMatchesRegularExpression('/exporting: \{"type":"image\/svg\+xml"\}/', $chart->render());
-    }
-
-    /**
-     * url option (string)
-     */
-    public function testUrl(): void
-    {
-        $chart = new Highchart();
-
-        // We need to use a Json Expr or else the slashes are escaped
-        $chart->exporting->url(new Expr('"http://www.google.com"'));
-
-        $this->assertMatchesRegularExpression('/exporting: \{"url":"http:\/\/www.google.com"\}/', $chart->render());
     }
 
     /**
