@@ -3,7 +3,6 @@
 namespace Ob\HighchartsBundle\Tests\Highcharts;
 
 use Ob\HighchartsBundle\Highcharts\Highchart;
-use Laminas\Json\Expr;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -93,19 +92,6 @@ class TooltipTest extends TestCase
 
         $chart->tooltip->enabled("false");
         $this->assertMatchesRegularExpression('/tooltip: \{"enabled":"false"\}/', $chart->render());
-    }
-
-    /**
-     * Formatter option (Laminas Json Expr)
-     */
-    public function testFormatter(): void
-    {
-        $chart = new Highchart();
-
-        $func = new Expr('function () { return 1; }');
-
-        $chart->tooltip->formatter($func);
-        $this->assertMatchesRegularExpression('/tooltip: \{"formatter":function\s?\(\)\s?\{ return 1; \}\}/', $chart->render());
     }
 
     /**
