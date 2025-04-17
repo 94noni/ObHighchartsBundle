@@ -19,8 +19,7 @@
         "symfony/dependency-injection": "^5.4|^6.0|^7.0",
         "symfony/config": "^5.4|^6.0|^7.0",
         "symfony/yaml": "^5.4|^6.0|^7.0",
-        "twig/twig": "^3.3",
-        "laminas/laminas-json": "^3.5"
+        "twig/twig": "^3.3"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^5.4|^6.0|^7.0",
