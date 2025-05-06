@@ -2,13 +2,16 @@
 
 > [!NOTE]
 > Fork of the original https://github.com/marcaube/ObHighchartsBundle
+> 
+> Difference with latest v1.7 is the support of Symfony v6+ and PHP v8+, tagged here as v2+.
+> 
+> All credits go for original author at https://github.com/marcaube/ObHighchartsBundle.
 
-Difference with latest v1.7 is the support of Symfony v6+ and PHP v8+, tagged here as v2+.
-
-All credits go for original author at https://github.com/marcaube/ObHighchartsBundle.
-
-> [!IMPORTANT]
+> [!WARNING]
 > Maintenance is not promised as I only fork to handle personal projects.
+
+> [!TIP]
+> You can also see https://ux.symfony.com/chartjs which is maintained in the Symfony UX ecosystem.
 
 Thanks!
 
